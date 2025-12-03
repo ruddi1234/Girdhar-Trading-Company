@@ -5,8 +5,8 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Girdhar Trading Company | Commission Agent & Grain Retailer',
-  description: 'Girdhar Trading Company specializes in commission-based grain trading and retail. With years of experience and strong market presence, we help farmers, wholesalers, and buyers connect with the right opportunities in the grain market.',
+  title: 'Girdhar Trading Company | Bulk Wheat & Rice Suppliers',
+  description: 'Premium B2B grain supplier specializing in bulk wheat and rice. Quality assured, competitive pricing, and reliable delivery for your business needs.',
 }
 
 export default function RootLayout({
