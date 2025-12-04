@@ -48,7 +48,7 @@ export default function EnquiryForm({ defaultProduct }: EnquiryFormProps) {
             transition={{ delay: 0.4 }}
             className="text-gray-700 mb-6 text-lg"
           >
-            Thank you! We'll get back to you soon with pricing and details.
+            Thank you! We&apos;ll get back to you soon with pricing and details.
           </motion.p>
 
           <motion.div

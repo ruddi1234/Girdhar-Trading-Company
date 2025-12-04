@@ -109,7 +109,7 @@ export default function EnquiryPage() {
               className="mt-8 p-6 bg-white/10 rounded-2xl backdrop-blur-sm"
             >
               <p className="text-sm text-primary-100">
-                "Trusted by over 500+ businesses across India for premium grain supply"
+                &quot;Trusted by over 500+ businesses across India for premium grain supply&quot;
               </p>
             </motion.div>
           </motion.div>
