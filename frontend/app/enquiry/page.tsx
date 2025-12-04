@@ -6,33 +6,19 @@ import Footer from '@/components/Footer';
 import EnquiryForm from '@/components/EnquiryForm';
 import SectionHeader from '@/components/SectionHeader';
 import { Mail, Phone, MapPin, Clock } from 'lucide-react';
+import { CONTACT_INFO, WHY_CHOOSE_US, TRUST_STATEMENT, ENQUIRY_PAGE } from '@/config/constants';
 
-const contactInfo = [
-  {
-    icon: Phone,
-    title: 'Phone',
-    details: '+91 XXXXXXXXXX',
-    link: 'tel:+91XXXXXXXXXX',
-  },
-  {
-    icon: Mail,
-    title: 'Email',
-    details: 'info@girdhartrading.com',
-    link: 'mailto:info@girdhartrading.com',
-  },
-  {
-    icon: MapPin,
-    title: 'Location',
-    details: 'India',
-    link: '#',
-  },
-  {
-    icon: Clock,
-    title: 'Business Hours',
-    details: 'Mon - Sat: 9AM - 6PM',
-    link: '#',
-  },
-];
+const iconMap = {
+  Phone,
+  Mail,
+  MapPin,
+  Clock,
+};
+
+const contactInfo = CONTACT_INFO.map((info) => ({
+  ...info,
+  icon: iconMap[info.icon as keyof typeof iconMap],
+}));
 
 export default function EnquiryPage() {
   return (
@@ -46,8 +32,8 @@ export default function EnquiryPage() {
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16"
       >
         <SectionHeader
-          title="Get a Quote"
-          subtitle="Fill out the form below and we'll get back to you with competitive pricing"
+          title={ENQUIRY_PAGE.title}
+          subtitle={ENQUIRY_PAGE.subtitle}
         />
 
         <div className="grid lg:grid-cols-3 gap-8 mb-12">
@@ -77,16 +63,9 @@ export default function EnquiryPage() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="lg:col-span-2 bg-gradient-to-br from-primary-600 to-primary-800 rounded-3xl p-8 text-white flex flex-col justify-center"
           >
-            <h3 className="text-3xl font-bold mb-6">Why Choose Us?</h3>
+            <h3 className="text-3xl font-bold mb-6">{ENQUIRY_PAGE.whyChooseUsTitle}</h3>
             <ul className="space-y-4">
-              {[
-                'Premium quality grains',
-                'Competitive bulk pricing',
-                'Reliable & timely delivery',
-                'Quality assurance guaranteed',
-                '24/7 customer support',
-                'Flexible payment terms',
-              ].map((item, index) => (
+              {WHY_CHOOSE_US.map((item, index) => (
                 <motion.li
                   key={index}
                   initial={{ opacity: 0, x: -20 }}
@@ -109,7 +88,7 @@ export default function EnquiryPage() {
               className="mt-8 p-6 bg-white/10 rounded-2xl backdrop-blur-sm"
             >
               <p className="text-sm text-primary-100">
-                &quot;Trusted by over 500+ businesses across India for premium grain supply&quot;
+                &quot;{TRUST_STATEMENT}&quot;
               </p>
             </motion.div>
           </motion.div>

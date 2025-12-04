@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { Wheat, Mail, Phone, MapPin } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { COMPANY, CONTACT, NAV_LINKS, FOOTER_PRODUCTS } from '@/config/constants';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -25,10 +26,10 @@ export default function Footer() {
               >
                 <Wheat className="text-primary-600" size={24} />
               </motion.div>
-              <span className="text-xl font-bold">Girdhar Trading</span>
+              <span className="text-xl font-bold">{COMPANY.name}</span>
             </div>
             <p className="text-primary-100 text-sm">
-              Your trusted partner in premium grain supply. Quality assured, delivered with care.
+              {COMPANY.tagline}
             </p>
           </motion.div>
 
@@ -40,26 +41,13 @@ export default function Footer() {
           >
             <h3 className="font-bold text-lg mb-4">Quick Links</h3>
             <ul className="space-y-2 text-primary-100">
-              <li>
-                <Link href="/" className="hover:text-white transition-colors">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link href="/products/rice" className="hover:text-white transition-colors">
-                  Rice
-                </Link>
-              </li>
-              <li>
-                <Link href="/products/wheat" className="hover:text-white transition-colors">
-                  Wheat
-                </Link>
-              </li>
-              <li>
-                <Link href="/enquiry" className="hover:text-white transition-colors">
-                  Get Quote
-                </Link>
-              </li>
+              {NAV_LINKS.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="hover:text-white transition-colors">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </motion.div>
 
@@ -71,10 +59,9 @@ export default function Footer() {
           >
             <h3 className="font-bold text-lg mb-4">Products</h3>
             <ul className="space-y-2 text-primary-100">
-              <li>Premium Basmati Rice</li>
-              <li>Organic Rice</li>
-              <li>Wheat Grain</li>
-              <li>Wheat Flour</li>
+              {FOOTER_PRODUCTS.map((product, index) => (
+                <li key={index}>{product}</li>
+              ))}
             </ul>
           </motion.div>
 
@@ -88,15 +75,15 @@ export default function Footer() {
             <ul className="space-y-3 text-primary-100">
               <li className="flex items-center gap-2">
                 <Phone size={16} />
-                <span>+91 XXXXXXXXXX</span>
+                <span>{CONTACT.phone}</span>
               </li>
               <li className="flex items-center gap-2">
                 <Mail size={16} />
-                <span>info@girdhartrading.com</span>
+                <span>{CONTACT.email}</span>
               </li>
               <li className="flex items-center gap-2">
                 <MapPin size={16} />
-                <span>India</span>
+                <span>{CONTACT.location}</span>
               </li>
             </ul>
           </motion.div>
@@ -109,7 +96,7 @@ export default function Footer() {
           transition={{ duration: 0.5, delay: 0.4 }}
           className="border-t border-primary-700 pt-8 text-center text-primary-200 text-sm"
         >
-          <p>&copy; {currentYear} Girdhar Trading Company. All rights reserved.</p>
+          <p>&copy; {currentYear} {COMPANY.fullName}. All rights reserved.</p>
         </motion.div>
       </div>
     </footer>

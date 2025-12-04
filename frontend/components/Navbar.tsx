@@ -4,16 +4,10 @@ import Link from 'next/link';
 import { Wheat, Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
+import { COMPANY, NAV_LINKS } from '@/config/constants';
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  const navLinks = [
-    { href: '/', label: 'Home' },
-    { href: '/products/rice', label: 'Rice' },
-    { href: '/products/wheat', label: 'Wheat' },
-    { href: '/enquiry', label: 'Get Quote' },
-  ];
 
   return (
     <motion.nav
@@ -33,12 +27,12 @@ export default function Navbar() {
               <Wheat className="text-white" size={28} />
             </motion.div>
             <span className="text-2xl font-bold bg-gradient-to-r from-primary-700 to-primary-900 bg-clip-text text-transparent">
-              Girdhar Trading
+              {COMPANY.name}
             </span>
           </Link>
 
           <div className="hidden md:flex gap-8">
-            {navLinks.map((link, index) => (
+            {NAV_LINKS.map((link, index) => (
               <motion.div
                 key={link.href}
                 initial={{ opacity: 0, y: -20 }}
@@ -77,7 +71,7 @@ export default function Navbar() {
             className="md:hidden bg-white border-t border-gray-100"
           >
             <div className="px-4 py-4 space-y-3">
-              {navLinks.map((link, index) => (
+              {NAV_LINKS.map((link, index) => (
                 <motion.div
                   key={link.href}
                   initial={{ opacity: 0, x: -20 }}

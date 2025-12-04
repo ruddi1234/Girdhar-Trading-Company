@@ -5,6 +5,7 @@ import InputField from './InputField';
 import GreenButton from './GreenButton';
 import { CheckCircle, Loader2, Sparkles } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { ENQUIRY_MESSAGES } from '@/config/constants';
 
 interface EnquiryFormProps {
   defaultProduct?: string;
@@ -39,7 +40,7 @@ export default function EnquiryForm({ defaultProduct }: EnquiryFormProps) {
             transition={{ delay: 0.3 }}
             className="text-3xl font-bold text-primary-900 mb-3"
           >
-            Enquiry Submitted!
+            {ENQUIRY_MESSAGES.successTitle}
           </motion.h3>
 
           <motion.p
@@ -48,7 +49,7 @@ export default function EnquiryForm({ defaultProduct }: EnquiryFormProps) {
             transition={{ delay: 0.4 }}
             className="text-gray-700 mb-6 text-lg"
           >
-            Thank you! We&apos;ll get back to you soon with pricing and details.
+            {ENQUIRY_MESSAGES.successMessage}
           </motion.p>
 
           <motion.div
@@ -58,7 +59,7 @@ export default function EnquiryForm({ defaultProduct }: EnquiryFormProps) {
           >
             <GreenButton onClick={resetForm} variant="primary">
               <Sparkles size={20} />
-              Submit Another Enquiry
+              {ENQUIRY_MESSAGES.submitAnother}
             </GreenButton>
           </motion.div>
         </motion.div>
@@ -139,11 +140,11 @@ export default function EnquiryForm({ defaultProduct }: EnquiryFormProps) {
               {loading ? (
                 <>
                   <Loader2 className="animate-spin" size={20} />
-                  Submitting...
+                  {ENQUIRY_MESSAGES.submitting}
                 </>
               ) : (
                 <>
-                  Submit Enquiry
+                  {ENQUIRY_MESSAGES.submitButton}
                   <Sparkles size={18} />
                 </>
               )}
